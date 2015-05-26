@@ -1,0 +1,207 @@
+% Compile with XeLaTeX
+% D4M, Accumulo, Databases, Linear algebra, 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,letterpaper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{banking}
+%\moderncvstyle{classic}                        % style options are 'casual' (default) and 'classic' 
+\moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+% character encoding
+\usepackage[utf8]{inputenc}
+
+% adjust the page margins
+%\usepackage[scale=0.75]{geometry}
+\usepackage[top=0.8in, bottom=0.8in, left=0.8in, right=0.8in]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
+
+\usepackage{changepage}
+
+%\usepackage{apalike}
+
+% bibliography with mutiple entries
+\usepackage{multibib}
+\newcites{conference,submitted,thesis}{{Conference Papers},{Submitted Papers},{Thesis}}
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% personal data
+\name{Dylan}{Hutchison}
+%\firstname{Gerrit}
+%\familyname{Hirschfeld}
+\address{117 Chestnut Drive}{Wayne, NJ 07470}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{862~226~2764}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{dhutchis@stevens.edu}                               % optional, remove / comment the line if not wanted
+\homepage{www.cs.stevens.edu/\textasciitilde dhutchis}
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+%\vspace{-2.5 em}
+%\section{Objective}
+\begin{adjustwidth}{1.5 em}{}
+%big data analytics
+\cvitem{Objective}{PhD research on the integration of databases and computation engines atop rigorous theory
+for high performance computing.
+%\phantom{\textbf{Objective}: }\textit{Structure Learning at Scale}, by applying rigorous Theory to Big Data systems
+%through research in distributed and Bayesian inference algorithms.
+%graphs and complex systems, through research in randomized and distributed algorithms.
+}
+\end{adjustwidth}
+
+%\vspace{-0.8em}
+\section{Education}
+\cventry{8/2010--5/2015}{}{\href{http://www.stevens.edu/}{Stevens Institute of Technology}}{Hoboken, NJ}{}{
+%\vspace{-1.35em}
+\textit{M.S. in Computer Science, M.S. in Applied Mathematics, B.E. in Computer Engineering}\vspace{0.05em}\\
+\noindent \vphantom{ {\large A} }Graduate GPA: \textbf{4.000}, Undergraduate GPA: \textbf{3.973} \\ %, Earned Credits: 150
+{\small \textbf{Thesis}: \,\,ModelWizard: Toward Interactive Model Construction \\
+\textbf{Awards}: \href{https://goldwater.scholarsapply.org/sch-2014.php}{2014 Barry Goldwater Scholar}, \href{http://www.crows.org/}{Association of Old Crows Scholar}, \href{http://www.tbp.org/scholarships.cfm}{Tau Beta Pi Scholar}, \\
+\phantom{\textbf{Awards}:} \href{http://cra.org/awards/undergrad-view/2014_outstanding_undergraduate_award_recipients/}{Computing Research Association \textit{Outstanding Undergraduate Researcher} Honorable Mention}, \\
+\phantom{\textbf{Awards}:} \href{http://web.stevens.edu/finaid/merit.php}{Ann P. Neupauer Scholar}, \href{https://apscore.collegeboard.org/scores/ap-awards/ap-scholar-awards}{National AP Scholar}, \href{http://www.stevens.edu/sit/registrar/dean-list}{Dean's List}, Dean’s Activities Honor List  
+}}% \\
+%\vspace{-0.2em}
+\cventry{1/2014--5/2014}{Study Abroad Semester, 6 courses transferred}{\href{http://www.ed.ac.uk/}{University of Edinburgh}}{Edinburgh, UK}{}{}
+
+%\href{http://www.ed.ac.uk/}{\textbf{University of Edinburgh}}, Study Abroad Semester Spring 2014
+
+% External Courses: Introduction to Complexity, Santa Fe Institute, completed January 2014 \\
+% \phantom{External Courses:} TESOL 120 Advanced Certificate for Teaching English as a Foreign Language, completed August 2012 
+%Edward J. Bloustein Distinguished Scholar,
+% arguments 3 to 6 can be left empty
+%Awarded Association of Old Crows Scholarship 11/15/2013
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+
+%\vspace{-0.8em}
+\section{Experience}
+\subsection{Professional Internships -- Laboratory \& Industry}
+\cventry{6/2014--8/2014}{}{\href{http://research.microsoft.com/en-us/labs/cambridge/}{Microsoft Research}}{Cambridge, UK}{}{
+%\vspace{-1.35em}
+\textit{Programming Principles and Tools Group}, Advisor \href{http://research.microsoft.com/en-us/people/adg/}{Dr. Andy Gordon}
+\begin{itemize}%
+\item Designed ModelWizard: a DSL in F\# for interactive model construction targeting \href{https://research.microsoft.com/apps/pubs/?id=204661}{Tabular}, a schema-based \\ \href{http://research.microsoft.com/apps/pubs/?id=208585}{probabilistic programming} language. Presented a concept poster at the Microsoft PhD Summer School
+\end{itemize}}
+\cventry{5/2013--8/2013}{}{\href{http://www.sandia.gov/locations/livermore_california.html}{Sandia National Laboratories}}{Livermore, CA}{}{
+%\vspace{-1.35em}
+\textit{Information Assurance Group}, Advisors Dr. Levi Lloyd, \href{http://www.sandia.gov/~tgkolda/}{Dr. Tamara Kolda}
+\begin{itemize}%
+%\item Pursued two approaches to detecting anomalous behavior in networks:
+%  \begin{itemize}%
+%  \item Designed Accumulo schema for manual and automated (ML) feature discovery
+%  \item Visualized network data with Gephi and Graphstream
+%  \end{itemize}
+\item Pursued network anomaly detection via Accumulo schemas, machine learning and visualization
+\item Scaled LXCs (Linux Containers) with MiniMega, a mass distributed VM experiment platform
+\end{itemize}}
+\cventry{5/2012--8/2012}{}{\href{http://www.ll.mit.edu/}{MIT Lincoln Laboratory}}{Lexington, MA}{}{
+%\vspace{-1.35em}
+\textit{Computing and Analytics Group}, Advisor \href{http://www.mit.edu/~kepner/}{Dr. Jeremy Kepner}\\
+\textit{Bioengineering and Systems Technology Group}, Advisor Dr. Darrell Ricke
+\begin{itemize}%
+%\item Researched distributed and parallel programming under expert Jeremy Kepner
+\item Integrated and benchmarked Accumulo distributed database features into \href{http://www.mit.edu/~kepner/D4M/}{D4M},\\ 
+a Matlab package delivering linear algebra and graph theory capabilities via Associative Arrays
+\item Applied D4M work to a DNA matching bioinformatics project, published in the \textit{Lincoln Laboratory Journal}
+\end{itemize}}
+\cventry{1/2012--5/2012}{}{\href{http://www.bbh.com/wps/portal/ourfirm/contactus/officelocations/northamerica/newjersey}{Brown Brothers Harriman}}{Jersey City, NJ}{}{
+%\vspace{-1.35em}
+\textit{Business Application Development}, Advisors John David, Steve Hansen
+\begin{itemize}%
+\item Designed and developed front- and back-end web applications for financial reporting using SQL, C++ and jQuery
+%\item Advanced a scheduling module for the Eagle STAR software, a system to track and update financial portfolios, \\with SQL database scripts, C++ server code, Javascript and AJAX
+%\item Delivered a proof of concept proposal for upgrading to jQuery-centered implementations
+\end{itemize}}
+
+%\vspace{-0.8em}
+\subsection{Academic --- \textit{Stevens Institute of Technology}}
+\cvitemwithcomment{}{\textbf{Independent Research}}{\normalsize 12/2012--8/2013} %-- Uncertainty in Causal Inference
+\vbox{\small
+\vspace{-0.1em} Advisor \href{http://www.cs.stevens.edu/~skleinbe/}{Dr. Samantha Kleinberg} \\
+\vspace{-1.20em}
+\begin{itemize}%
+\item \begin{tabbing}
+Published \=an extended abstract and delivered a talk: 
+\\ \> D. Hutchison and S. Kleinberg. \textbf{\textit{Causal Inference under Uncertainty via Adjustments and SOPDs}}.\\ % an extended abstract
+\> Causality and Experimentation in the Sciences.  Paris, France, July 2013
+\end{tabbing}
+\item \begin{tabbing}
+Presented \=\textit{SOPD: Second-Order Probability Distributions} at PLMW student Minute-Madness event.\\
+\> Principles of Programming Langauges. Rome, Italy, January 2013
+\end{tabbing}
+\end{itemize}}
+%\cventry{12/2012--Present}{Volunteer Research}{}{}{}{
+%\begin{itemize}%
+%\item Partnered with Samantha Kleinberg to better represent uncertainty in causal inference
+%\item Presented an extended abstract: \textbf{Causal Inference under Uncertainty via Adjustments and SOPDs}.  Causality and Experimentation in the Sciences.  Paris, France, July 2013
+%\end{itemize}}
+\cvitemwithcomment[0.1 em]{}{\textbf{Course Assistant}}{\normalsize 8/2012--12/2013} %optional argument is the v. spacing after
+\vbox{\small
+\begin{itemize}%
+\item Teach, create and evaluate computer science coursework for classes ranging from 40 up to 70 students
+\item CS 506: Intro to IT Security, CS 135: Discrete Structures, CS 334: Automata and Computation
+\end{itemize}}
+\cvitemwithcomment[0 em]{}{\textbf{Tutor}}{\normalsize 8/2011--12/2013} %optional argument is the v. spacing after
+\vbox{\small
+\begin{itemize}%
+\item Teach individuals and groups in Mathematics, Computer Science and Engineering
+\end{itemize}}
+
+%
+% \subsection{Languages \& Software Skills}
+% {\small Matlab, Java, C, C++, Scheme, VHDL, Lisp, Javascript, D, Haskell, Go, Python, Erlang, \\ \phantom{\qquad}Accumulo, Moto. 68HC12 Assembly, SQL, Windows, Linux, Bash, Eclipse, SVN, Git\\
+% Earned TESOL 120 Advanced Certificate for Teaching English as a Foreign Language}
+%\textit{With one week's refresher, I can contribute to projects in}: 
+%\vspace{-0.4em}
+\section{Activities}
+{\small
+\cvitem{Scientific Philosophy}{Presented \textit{Our aims as Modelers: toward better Predictions, Explanations, Interventions}\newline \phantom{\qquad} at Upsilon Pi Epsilon ‘Tech Talk’ seminar, April 2013; Sandia Technical Seminar, August 2013}
+\cvitem{Academic Honor Societies}{\href{http://www.tbp.org/home.cfm}{\textit{Tau Beta Pi}} (Engineering), \href{http://upe.acm.org/}{\textit{Upsilon Pi Epsilon}} (Computer Science), \href{http://www.ieee.org/education_careers/education/ieee_hkn/index.html}{\textit{Eta Kappa Nu}} (IEEE)}
+\cvitem{Graduate Computer Science Society}{\textit{Vice President 2013}. Organized seminars and programming challenge events}
+\cvitem{Cycling Club}{\textit{President 2012}. Led the team and the Stevens Duck Country Circuit Race, Mountainside NJ}
+\cvitem{Anime Club}{\textit{Treasurer 2012; Head of Operations} for 2012 Castle Point Anime Convention, attracting over 2100 people}
+%\cvitem{Hobby Reading}{Quantum computing, Space Elevators, novels by Daniel Quinn and Kim Stanley Robinson}
+}
+
+\nocitesubmitted{*}
+\bibliographystylesubmitted{plain}
+\bibliographysubmitted{DylanPubs}
+
+
+\nociteconference{*}
+\bibliographystyleconference{plain}
+\bibliographyconference{DylanPubs}
+
+
+\nocitethesis{*}
+\bibliographystylethesis{plain}
+\bibliographythesis{DylanPubs}
+
+
+
+
+
+
+
+
+
+
+%\section{Links} 
+%Github:// \href{https://github.com/dhutchis}{\bf dhutchis} \\
+%LinkedIn://  \href{https://www.linkedin.com/in/dylanhutchison}{\bf dylanhutchison} \\
+%Java \textbullet{}   Shell \textbullet{} Python \textbullet{} Javascript \\
+\end{document}
