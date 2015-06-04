@@ -2,13 +2,13 @@
 # the make file will automatically look for INPUT.tex as the latex file
 # and will look for a INPUT.bib file for the bibliography
 INPUT=dhutchis-cv
-BIBFILE=conference submitted thesis
+BIBFILE=dhutchis-cv     #S C T J
 
 #commands 
 TEX=latex #xetex
 PDFTEX=pdflatex #xelatex
 LYX=lyx
-BIBTEX=bibtex
+BIBTEX=biber #bibtex
 DVIPS=dvips -t letter
 PS2PDF=ps2pdf14 -dPDFSETTINGS=/prepress
 

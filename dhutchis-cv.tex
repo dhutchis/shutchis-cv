@@ -25,8 +25,17 @@
 %\usepackage{apalike}
 
 % bibliography with mutiple entries
-\usepackage{multibib}
-\newcites{conference,submitted,thesis}{{Conference Papers},{Submitted Papers},{Thesis}}
+%\usepackage[labeled]{multibib}
+%\newcites{C,S,T,J}{{Conference Papers},{Submitted Papers},{Thesis},{Journal Papers}}
+
+% Thank you: https://tex.stackexchange.com/questions/35279/biblatex-multiple-bibliographies-categorised-by-different-bib-files
+% uses biber.conf
+\usepackage[sorting=none, backend=biber, defernumbers=true]{biblatex}
+\addbibresource{S.bib}
+\addbibresource{C.bib}
+\addbibresource{J.bib}
+\addbibresource{T.bib}
+\nocite{*}
 
 % to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
 %\makeatletter
@@ -42,8 +51,6 @@
 
 % personal data
 \name{Dylan}{Hutchison}
-%\firstname{Gerrit}
-%\familyname{Hirschfeld}
 \address{117 Chestnut Drive}{Wayne, NJ 07470}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 \phone[mobile]{862~226~2764}                   % optional, remove / comment the line if not wanted
 %\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
@@ -56,6 +63,10 @@
 
 \newlength{\upcventry}
 \setlength{\upcventry}{-1.1em}
+
+
+
+
 
 
 %----------------------------------------------------------------------------------
@@ -88,14 +99,17 @@
 \textit{MS in Computer Science, MS in Applied Mathematics, BE in Computer Engineering}%\vspace{0.05em}
 %\noindent \vphantom{ {\large A} }%Graduate GPA: \textbf{4.00}, Undergraduate GPA: \textbf{3.97} \\ %, Earned Credits: 150
 \begin{nstabbing}
-\textbf{GPA}:    \quad\=4.00 Graduate, 3.97 Undergraduate\\
-\textbf{Thesis}: \>ModelWizard: Toward Interactive Model Construction \\
-\textbf{Awards}: \>\href{https://goldwater.scholarsapply.org/sch-2014.php}{2014 Barry Goldwater Scholar}, \href{http://www.crows.org/}{Association of Old Crows Scholar}, \href{http://www.tbp.org/scholarships.cfm}{Tau Beta Pi Scholar}, \\
-\> \href{http://cra.org/awards/undergrad-view/2014_outstanding_undergraduate_award_recipients/}{Computing Research Association \textit{Outstanding Undergraduate Researcher} Honorable Mention}, \\
-\> \href{http://web.stevens.edu/finaid/merit.php}{Ann P. Neupauer Scholar}, \href{https://apscore.collegeboard.org/scores/ap-awards/ap-scholar-awards}{National AP Scholar}, \href{http://www.stevens.edu/sit/registrar/dean-list}{Dean's List}, Dean’s Activities Honor List  
+\textbf{GPA}    $\qquad\quad$\=4.00 Graduate, 3.97 Undergraduate\\
+\textbf{Thesis} \>ModelWizard: Toward Interactive Model Construction \\
+\>\emph{advised by} Dr. \href{http://www.cs.stevens.edu/~naumann/}{David A. Naumann}, Dr. Philippos Mordohai, Dr. Andrew D. Gordon \\
+\textbf{Awards} \>\href{https://goldwater.scholarsapply.org/sch-2014.php}{2014 National Barry Goldwater Scholar}, \href{http://www.crows.org/}{Association of Old Crows Scholar}, \href{http://www.tbp.org/scholarships.cfm}{Tau Beta Pi Scholar}, \\
+\> \href{http://cra.org/awards/undergrad-view/2014_outstanding_undergraduate_award_recipients/}{Computing Research Association \textit{Outstanding Undergraduate Researcher} Honorable Mention} \\
+%\> \href{http://web.stevens.edu/finaid/merit.php}{Ann P. Neupauer Scholar}, \href{https://apscore.collegeboard.org/scores/ap-awards/ap-scholar-awards}{National AP Scholar}, \href{http://www.stevens.edu/sit/registrar/dean-list}{Dean's List}, Dean’s Activities Honor List  \\
+\textbf{Societies} \>\href{http://www.tbp.org/home.cfm}{\textit{Tau Beta Pi}} (Engineering), \href{http://upe.acm.org/}{\textit{Upsilon Pi Epsilon}} (Computer Science), \href{http://www.ieee.org/education_careers/education/ieee_hkn/index.html}{\textit{Eta Kappa Nu}} (IEEE) 
+%\textbf{Leadership} \>Senior Design Project Leader---HBaaS: Bioinformatics protein sequencing web service with Accumulo and GPUs, \\
+%\> President of Cycling Club: 
 \end{nstabbing}
 }% \\
-%\vspace{-0.2em}
 \cventry{1/2014--5/2014}{Study Abroad Semester, 6 courses transferred}{\href{http://www.ed.ac.uk/}{University of Edinburgh}}{Edinburgh, UK}{}{}
 
 %\href{http://www.ed.ac.uk/}{\textbf{University of Edinburgh}}, Study Abroad Semester Spring 2014
@@ -155,8 +169,9 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 \end{itemize}}
 
 %\vspace{-0.8em}
-\subsection{Academic --- \textit{Stevens Institute of Technology}}
-\cvitemwithcomment{}{\textbf{Independent Research}}{\normalsize 12/2012--8/2013} %-- Uncertainty in Causal Inference
+\subsection{Leadership and Academic}
+%\cventry{12/2012--8/2013}{}{Causal Inference Research}{Hoboken, NJ}{}{
+\cvitemwithcomment{}{\textbf{Causal Inference Research}}{\normalsize 12/2012--8/2013} %-- Uncertainty in Causal Inference
 \vbox{\small
 \vspace{-0.1em} Advisor \href{http://www.cs.stevens.edu/~skleinbe/}{Dr. Samantha Kleinberg} \\
 \vspace{-1.20em}
@@ -204,28 +219,36 @@ Presented \=\textit{SOPD: Second-Order Probability Distributions} at PLMW studen
 %\cvitem{Hobby Reading}{Quantum computing, Space Elevators, novels by Daniel Quinn and Kim Stanley Robinson}
 }
 
-\nocitesubmitted{*}
-\bibliographystylesubmitted{plain}
-\bibliographysubmitted{DylanPubs}
 
 
-\nociteconference{*}
-\bibliographystyleconference{plain}
-\bibliographyconference{DylanPubs}
+%% \nociteS{*}
+%% \bibliographystyleS{plain}
+%% \bibliographyS{S}
 
 
-\nocitethesis{*}
-\bibliographystylethesis{plain}
-\bibliographythesis{DylanPubs}
+%% \nociteC{*}
+%% \bibliographystyleC{plain}
+%% \bibliographyC{C}
+
+
+%% \nociteT{*}
+%% \bibliographystyleT{plain}
+%% \bibliographyT{T}
+
+%% \nociteJ{*}
+%% \bibliographystyleJ{plain}
+%% \bibliographyJ{J}
 
 
 
+\printbibliography[prefixnumbers=S, title=Submitted Papers, keyword=S]{}
+\printbibliography[prefixnumbers=C, title=Conference Papers, keyword=C]{}
+\printbibliography[prefixnumbers=J, title=Journal Papers, keyword=J]{}
+\printbibliography[prefixnumbers=T, title=Thesis, keyword=T]{}
 
 
 
-
-
-
+%{Conference Papers},{Submitted Papers},{Thesis},{Journal Papers}
 
 %\section{Links} 
 %Github:// \href{https://github.com/dhutchis}{\bf dhutchis} \\
