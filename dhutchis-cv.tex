@@ -30,7 +30,22 @@
 
 % Thank you: https://tex.stackexchange.com/questions/35279/biblatex-multiple-bibliographies-categorised-by-different-bib-files
 % uses biber.conf
-\usepackage[sorting=none, backend=biber, defernumbers=true]{biblatex}
+% sorting: https://tex.stackexchange.com/questions/140561/anti-chronological-bibliography-with-sorting-ydnt-and-usage-of-sortyear
+\usepackage[sorting=ydnt, backend=biber, defernumbers=true,style=numeric]{biblatex}
+
+%\DeclareNameAlias{sortname}{last-first}
+%\DeclareNameAlias{default}{last-first}
+
+\AtDataInput{%
+  \csnumgdef{entrycount:\strfield{prefixnumber}}{%
+    \csuse{entrycount:\strfield{prefixnumber}}+1}}
+
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+\newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\strfield{prefixnumber}}+1-#1\relax}
+
+
+
 \addbibresource{S.bib}
 \addbibresource{C.bib}
 \addbibresource{J.bib}
@@ -92,12 +107,12 @@
 \cventry{9/2015--Future}{}{\href{https://www.cs.washington.edu/}{University of Washington}% -- \textnormal{\emph{PhD in Computer Science \& Engineering}}
 }{Seattle, WA}{}{
 \vspace{\upcventry}
-\textit{PhD in Computer Science \& Engineering}\\
+\textit{Ph.D. in Computer Science \& Engineering}\\
 %blah blah
 }
 \cventry{8/2010--5/2015}{}{\href{http://www.stevens.edu/}{Stevens Institute of Technology}}{Hoboken, NJ}{}{
 \vspace{\upcventry}
-\textit{MS in Computer Science, MS in Applied Mathematics, BE in Computer Engineering}%\vspace{0.05em}
+\textit{M.S. in Computer Science, M.S. in Applied Mathematics, B.E. in Computer Engineering}%\vspace{0.05em}
 %\noindent \vphantom{ {\large A} }%Graduate GPA: \textbf{4.00}, Undergraduate GPA: \textbf{3.97} \\ %, Earned Credits: 150
 \begin{nstabbing}
 \textbf{GPA}    $\qquad\quad$\=4.00 Graduate, 3.97 Undergraduate\\
@@ -174,23 +189,29 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 \end{itemize}}
 
 %\vspace{-0.8em}
-\subsection{Leadership and Academic}
+\subsection{Academic \& Leadership}
+\cventry{8/2014--5/2015}{}{Stevens Institute of Technology}{Hoboken, NJ}{}{
+%
+}
+
+
 %\cventry{12/2012--8/2013}{}{Causal Inference Research}{Hoboken, NJ}{}{
-\cvitemwithcomment{}{\textbf{Causal Inference Research}}{\normalsize 12/2012--8/2013} %-- Uncertainty in Causal Inference
-\vbox{\small
-\vspace{-0.1em} Advisor \href{http://www.cs.stevens.edu/~skleinbe/}{Dr. Samantha Kleinberg} \\
-\vspace{-1.20em}
-\begin{itemize}%
-\item \begin{tabbing}
-Published \=an extended abstract and delivered a talk: 
-\\ \> D. Hutchison and S. Kleinberg. \textbf{\textit{Causal Inference under Uncertainty via Adjustments and SOPDs}}.\\ % an extended abstract
-\> Causality and Experimentation in the Sciences.  Paris, France, July 2013
-\end{tabbing}
-\item \begin{tabbing}
-Presented \=\textit{SOPD: Second-Order Probability Distributions} at PLMW student Minute-Madness event.\\
-\> Principles of Programming Langauges. Rome, Italy, January 2013
-\end{tabbing}
-\end{itemize}}
+%\cvitemwithcomment{}{\textbf{Causal Inference Research}}{\normalsize 12/2012--8/2013} %-- Uncertainty in Causal Inference
+%\vbox{\small
+%\vspace{-0.1em} Advisor \href{http://www.cs.stevens.edu/~skleinbe/}{Dr. Samantha Kleinberg} \\
+%\vspace{-1.20em}
+%\begin{itemize}%
+%\item \begin{tabbing}
+%Published \=an extended abstract and delivered a talk: 
+%\\ \> D. Hutchison and S. Kleinberg. \textbf{\textit{Causal Inference under Uncertainty via Adjustments and SOPDs}}.\\ % an extended abstract
+%\> Causality and Experimentation in the Sciences.  Paris, France, July 2013
+%\end{tabbing}
+%\item \begin{tabbing}
+%Presented \=\textit{SOPD: Second-Order Probability Distributions} at PLMW student Minute-Madness event.\\
+%\> Principles of Programming Langauges. Rome, Italy, January 2013
+%\end{tabbing}
+%\end{itemize}}
+
 %\cventry{12/2012--Present}{Volunteer Research}{}{}{}{
 %\begin{itemize}%
 %\item Partnered with Samantha Kleinberg to better represent uncertainty in causal inference
@@ -225,31 +246,11 @@ Presented \=\textit{SOPD: Second-Order Probability Distributions} at PLMW studen
 }
 
 
-
-%% \nociteS{*}
-%% \bibliographystyleS{plain}
-%% \bibliographyS{S}
-
-
-%% \nociteC{*}
-%% \bibliographystyleC{plain}
-%% \bibliographyC{C}
-
-
-%% \nociteT{*}
-%% \bibliographystyleT{plain}
-%% \bibliographyT{T}
-
-%% \nociteJ{*}
-%% \bibliographystyleJ{plain}
-%% \bibliographyJ{J}
-
-
-
-\printbibliography[prefixnumbers=S, title=Submitted Papers, keyword=S]{}
-\printbibliography[prefixnumbers=C, title=Conference Papers, keyword=C]{}
-\printbibliography[prefixnumbers=J, title=Journal Papers, keyword=J]{}
-\printbibliography[prefixnumbers=T, title=Thesis, keyword=T]{}
+\section{Publications}
+\printbibliography[prefixnumbers=S, title=Submitted Papers, keyword=S,heading=subbibliography]{}
+\printbibliography[prefixnumbers=C, title=Conference Papers, keyword=C,heading=subbibliography]{}
+\printbibliography[prefixnumbers=J, title=Journal Papers, keyword=J,heading=subbibliography]{}
+\printbibliography[prefixnumbers=T, title=Thesis, keyword=T,heading=subbibliography]{}
 
 
 
