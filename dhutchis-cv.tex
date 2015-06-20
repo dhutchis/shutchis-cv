@@ -1,8 +1,20 @@
 % Compile with XeLaTeX
 % D4M, Accumulo, Databases, Linear algebra, 
 % Todo: Header
-% NSF Fellowship
+% Use @misc enty for presentations
 % Last updated at bottom, change papers to go at end.
+% helpful:
+%% \renewcommand{\@listI}{%
+%% \leftmargin=25pt
+%% \rightmargin=0pt
+%% \labelsep=5pt
+%% \labelwidth=20pt
+%% \itemindent=0pt
+%% \listparindent=0pt
+%% \topsep=0pt plus 2pt minus 4pt
+%% \partopsep=0pt plus 1pt minus 1pt
+%% \parsep=0pt plus 1pt
+%% \itemsep=\parsep}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[11pt,letterpaper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
@@ -31,7 +43,7 @@
 % Thank you: https://tex.stackexchange.com/questions/35279/biblatex-multiple-bibliographies-categorised-by-different-bib-files
 % uses biber.conf
 % sorting: https://tex.stackexchange.com/questions/140561/anti-chronological-bibliography-with-sorting-ydnt-and-usage-of-sortyear
-\usepackage[sorting=ydnt, backend=biber, defernumbers=true,style=numeric]{biblatex}
+\usepackage[sorting=ydnt, backend=biber, defernumbers=true,bibstyle=ieee,citestyle=numeric-comp]{biblatex}
 
 %\DeclareNameAlias{sortname}{last-first}
 %\DeclareNameAlias{default}{last-first}
@@ -44,7 +56,7 @@
 \newrobustcmd*{\mkbibdesc}[1]{%
   \number\numexpr\csuse{entrycount:\strfield{prefixnumber}}+1-#1\relax}
 
-
+\DeclareFieldFormat{url}{Online:~\url{#1}}
 
 \addbibresource{S.bib}
 \addbibresource{C.bib}
@@ -66,18 +78,19 @@
 
 % personal data
 \name{Dylan}{Hutchison}
-\address{117 Chestnut Drive}{Wayne, NJ 07470}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\address{55 Pleasant Ave}{West Caldwell, NJ 07006}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 \phone[mobile]{862~226~2764}                   % optional, remove / comment the line if not wanted
 %\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
 %\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{dhutchis@stevens.edu}                               % optional, remove / comment the line if not wanted
-\homepage{www.cs.stevens.edu/\textasciitilde dhutchis}
+\email{dhutchis@mit.edu}                               % optional, remove / comment the line if not wanted
+%\homepage{www.cs.stevens.edu/\textasciitilde dhutchis}
+\homepage{linkedin.com/in/dylanhutchison}
 %\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
 \newlength{\upcventry}
-\setlength{\upcventry}{-1.1em}
+\setlength{\upcventry}{-1.2em}
 
 
 
@@ -107,8 +120,13 @@
 \cventry{9/2015--Future}{}{\href{https://www.cs.washington.edu/}{University of Washington}% -- \textnormal{\emph{PhD in Computer Science \& Engineering}}
 }{Seattle, WA}{}{
 \vspace{\upcventry}
-\textit{Ph.D. in Computer Science \& Engineering}\\
-%blah blah
+\textit{Ph.D. in Computer Science \& Engineering}
+\begin{nstabbing}
+%\phantom{\textbf{GPA}    $\qquad\quad$}\=\\ 
+%\textbf{Thesis} \>ModelWizard: Toward Interactive Model Construction \\
+%\>\emph{advised by} Dr. \href{http://www.cs.stevens.edu/~naumann/}{David A. Naumann}, Dr. Philippos Mordohai, Dr. Andrew D. Gordon \\
+\textbf{Awards} $\quad\;\;\;$\href{https://www.nsfgrfp.org/}{NSF Graduate Research Fellow}
+\end{nstabbing}
 }
 \cventry{8/2010--5/2015}{}{\href{http://www.stevens.edu/}{Stevens Institute of Technology}}{Hoboken, NJ}{}{
 \vspace{\upcventry}
@@ -140,22 +158,26 @@
 %\vspace{-0.8em}
 \section{Experience}
 \subsection{Laboratory \& Industry}
-\cventry{1/2015--9/2015}{}{\href{http://www.ll.mit.edu/}{MIT Lincoln Laboratory} -- \textnormal{\emph{Research Engineer}}}{Lexington, MA}{}{
+\cventry{1/2015--9/2015}{}{\href{http://www.ll.mit.edu/}{MIT Lincoln Laboratory} \textnormal{-- \emph{Research Engineer} %-- {\scriptsize \cite{gadepally2015gabb, hutchison2015graphulo}}
+}}{Lexington, MA}{}{
 \vspace{\upcventry}
 \textit{Computing and Analytics Group}, Advisors \href{http://www.mit.edu/~kepner/}{Dr. Jeremy Kepner}, \href{https://vijayg.mit.edu/}{Dr. Vijay Gadepally}
 \begin{itemize}%
-\item Research Engineer for \href{http://graphulo.mit.edu/}{Graphulo}, a server-side matrix math library for the Accumulo database
+\item Engineered \href{http://graphulo.mit.edu/}{Graphulo}, a Java server-side matrix math library for the Accumulo database
+\item Recasted graph algorithms into the \href{http://istc-bigdata.org/GraphBlas/}{GraphBLAS} standard; prototyped in Matlab
 %implementing the GraphBLAS kernels and graph algorithms.
 \end{itemize}}
-%
-\cventry{6/2014--8/2014}{}{\href{http://research.microsoft.com/en-us/labs/cambridge/}{Microsoft Research} -- \textnormal{\emph{Research Intern}}}{Cambridge, UK}{}{
+
+
+\cventry{6/2014--8/2014}{}{\href{http://research.microsoft.com/en-us/labs/cambridge/}{Microsoft Research} \textnormal{-- \emph{Research Intern} %-- {\scriptsize  \cite{smith2015monitoring}} 
+}}{Cambridge, UK}{}{
 \vspace{\upcventry}
 \textit{Programming Principles and Tools Group}, Advisor \href{http://research.microsoft.com/en-us/people/adg/}{Dr. Andy Gordon}
 \begin{itemize}%
 \item Designed ModelWizard: a DSL in F\# for interactive model construction targeting \href{https://research.microsoft.com/apps/pubs/?id=204661}{Tabular}, a schema-based \\ \href{http://research.microsoft.com/apps/pubs/?id=208585}{probabilistic programming} language. Presented a concept poster at the Microsoft PhD Summer School
 \end{itemize}}
 %
-\cventry{5/2013--8/2013}{}{\href{http://www.sandia.gov/locations/livermore_california.html}{Sandia National Laboratories} -- \textnormal{\emph{Technical Intern}}}{Livermore, CA}{}{
+\cventry{5/2013--8/2013}{}{\href{http://www.sandia.gov/locations/livermore_california.html}{Sandia National Laboratories} \textnormal{-- \emph{Technical Intern}}}{Livermore, CA}{}{
 \vspace{\upcventry}
 \textit{Information Assurance Group}, Advisors Dr. Levi Lloyd, \href{http://www.sandia.gov/~tgkolda/}{Dr. Tamara Kolda}
 \begin{itemize}%
@@ -168,7 +190,8 @@
 \item Scaled LXCs (Linux Containers) with MiniMega, a mass distributed VM experiment platform
 \end{itemize}}
 %
-\cventry{5/2012--8/2012}{}{\href{http://www.ll.mit.edu/}{MIT Lincoln Laboratory} -- \textnormal{\emph{Research Intern}}}{Lexington, MA}{}{
+\cventry{5/2012--8/2012}{}{\href{http://www.ll.mit.edu/}{MIT Lincoln Laboratory} %\textnormal{-- \emph{Research Intern} -- {\scriptsize  \cite{kepner2013taming}}}
+}{Lexington, MA}{}{
 \vspace{\upcventry}
 \textit{Computing and Analytics Group}, Advisor \href{http://www.mit.edu/~kepner/}{Dr. Jeremy Kepner}\\
 \textit{Bioengineering and Systems Technology Group}, Advisor Dr. Darrell Ricke
@@ -179,7 +202,7 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 \item Applied D4M work to a DNA matching bioinformatics project, published in the \textit{Lincoln Laboratory Journal}
 \end{itemize}}
 %
-\cventry{1/2012--5/2012}{}{\href{http://www.bbh.com/wps/portal/ourfirm/contactus/officelocations/northamerica/newjersey}{Brown Brothers Harriman} -- \textnormal{\emph{Web Development Co-op}}}{Jersey City, NJ}{}{
+\cventry{1/2012--5/2012}{}{\href{http://www.bbh.com/wps/portal/ourfirm/contactus/officelocations/northamerica/newjersey}{Brown Brothers Harriman} \textnormal{-- \emph{Web Development Co-op}}}{Jersey City, NJ}{}{
 \vspace{\upcventry}
 \textit{Business Application Development}, Advisors John David, Steve Hansen
 \begin{itemize}%
@@ -189,10 +212,27 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 \end{itemize}}
 
 %\vspace{-0.8em}
-\subsection{Academic \& Leadership}
-\cventry{8/2014--5/2015}{}{Stevens Institute of Technology}{Hoboken, NJ}{}{
-%
+\clearpage
+\subsection{Teaching}
+\cventry{}{}{Stevens Institute of Technology}{Hoboken, NJ}{}{
+\vspace{\upcventry}
+\cvitemwithcomment{Computer Science Department}{\textit{Teaching Assistant}}{\normalsize 8/2012--12/2013}
+\begin{itemize}
+\item Teach, create and evaluate computer science coursework for classes ranging from 40 up to 70 students
+\item CS 506: Intro to IT Security, CS 135: Discrete Structures, CS 334: Automata and Computation
+\end{itemize}\addvspace{0.5\parsep}
+%{%\listitemmaincolumnwidth=5pt
+%\cvlistitem{Item 1 afdea fdafd wase faf a}
+%}
+\cvitemwithcomment{Academic Support Center}{\textit{Tutor}}{\normalsize 8/2011--12/2013} %optional argument is the v. spacing after
+\begin{itemize}%
+\item Teach individuals and groups in Mathematics, Computer Science and Engineering
+\end{itemize}
 }
+%\cvitem{supervisors}{Supervisors}
+%\cvitemwithcomment{Language 1}{Skill level}{Comment}
+%\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+%\cvlistitem{Item 1}
 
 
 %\cventry{12/2012--8/2013}{}{Causal Inference Research}{Hoboken, NJ}{}{
@@ -217,17 +257,20 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 %\item Partnered with Samantha Kleinberg to better represent uncertainty in causal inference
 %\item Presented an extended abstract: \textbf{Causal Inference under Uncertainty via Adjustments and SOPDs}.  Causality and Experimentation in the Sciences.  Paris, France, July 2013
 %\end{itemize}}
-\cvitemwithcomment[0.1 em]{}{\textbf{Course Assistant}}{\normalsize 8/2012--12/2013} %optional argument is the v. spacing after
-\vbox{\small
-\begin{itemize}%
-\item Teach, create and evaluate computer science coursework for classes ranging from 40 up to 70 students
-\item CS 506: Intro to IT Security, CS 135: Discrete Structures, CS 334: Automata and Computation
-\end{itemize}}
-\cvitemwithcomment[0 em]{}{\textbf{Tutor}}{\normalsize 8/2011--12/2013} %optional argument is the v. spacing after
-\vbox{\small
-\begin{itemize}%
-\item Teach individuals and groups in Mathematics, Computer Science and Engineering
-\end{itemize}}
+%% \cvitemwithcomment[0.1 em]{}{\textbf{Course Assistant}}{\normalsize 8/2012--12/2013} %optional argument is the v. spacing after
+%% \vbox{\small
+%% \begin{itemize}%
+%% \item Teach, create and evaluate computer science coursework for classes ranging from 40 up to 70 students
+%% \item CS 506: Intro to IT Security, CS 135: Discrete Structures, CS 334: Automata and Computation
+%% \end{itemize}}
+%% \cvitemwithcomment[0 em]{}{\textbf{Tutor}}{\normalsize 8/2011--12/2013} %optional argument is the v. spacing after
+%% \vbox{\small
+%% \begin{itemize}%
+%% \item Teach individuals and groups in Mathematics, Computer Science and Engineering
+%% \end{itemize}}
+
+%\subsection{Additional Projects}
+
 
 %
 % \subsection{Languages \& Software Skills}
@@ -238,7 +281,7 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 \section{Activities}
 {\small
 \cvitem{Scientific Philosophy}{Presented \textit{Our aims as Modelers: toward better Predictions, Explanations, Interventions}\newline \phantom{\qquad} at Upsilon Pi Epsilon ‘Tech Talk’ seminar, April 2013; Sandia Technical Seminar, August 2013}
-\cvitem{Academic Honor Societies}{\href{http://www.tbp.org/home.cfm}{\textit{Tau Beta Pi}} (Engineering), \href{http://upe.acm.org/}{\textit{Upsilon Pi Epsilon}} (Computer Science), \href{http://www.ieee.org/education_careers/education/ieee_hkn/index.html}{\textit{Eta Kappa Nu}} (IEEE)}
+%\cvitem{Academic Honor Societies}{\href{http://www.tbp.org/home.cfm}{\textit{Tau Beta Pi}} (Engineering), \href{http://upe.acm.org/}{\textit{Upsilon Pi Epsilon}} (Computer Science), \href{http://www.ieee.org/education_careers/education/ieee_hkn/index.html}{\textit{Eta Kappa Nu}} (IEEE)}
 \cvitem{Graduate Computer Science Society}{\textit{Vice President 2013}. Organized seminars and programming challenge events}
 \cvitem{Cycling Club}{\textit{President 2012}. Led the team and the Stevens Duck Country Circuit Race, Mountainside NJ}
 \cvitem{Anime Club}{\textit{Treasurer 2012; Head of Operations} for 2012 Castle Point Anime Convention, attracting over 2100 people}
