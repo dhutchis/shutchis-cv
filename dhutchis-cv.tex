@@ -132,6 +132,8 @@
   \number\numexpr\csuse{entrycount:\strfield{prefixnumber}}+1-#1\relax}
 
 \DeclareFieldFormat{url}{Online:~\url{#1}}
+%\DeclareFieldFormat{addendum}{\emph{#1}}
+\DeclareFieldFormat{addendum}{\textbf{#1}}
 
 \addbibresource{S.bib}
 \addbibresource{C.bib}
