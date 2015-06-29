@@ -1,8 +1,8 @@
 % Compile with XeLaTeX
 % D4M, Accumulo, Databases, Linear algebra, 
+% Put new papers at the end of the conference files.
 % Todo: Header
 % Use @misc enty for presentations
-% Last updated at bottom, change papers to go at end.
 % helpful:
 %% \renewcommand{\@listI}{%
 %% \leftmargin=25pt
@@ -43,7 +43,82 @@
 % Thank you: https://tex.stackexchange.com/questions/35279/biblatex-multiple-bibliographies-categorised-by-different-bib-files
 % uses biber.conf
 % sorting: https://tex.stackexchange.com/questions/140561/anti-chronological-bibliography-with-sorting-ydnt-and-usage-of-sortyear
-\usepackage[sorting=ydnt, backend=biber, defernumbers=true,bibstyle=ieee,citestyle=numeric-comp]{biblatex}
+\usepackage[sorting=ymdnt, backend=biber, defernumbers=true,bibstyle=ieee,citestyle=numeric-comp]{biblatex}
+
+\DeclareSortingScheme{ymdnt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{99}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{99}
+  }
+  \sort{
+    \name{sortname}
+    \name{author}
+    \name{editor}
+    \name{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sorttitle}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=4,padchar=0]{volume}
+    \literal{9999}
+  }
+}
+% sort in citation order and then by year/month, and author and title
+%% \DeclareSortingScheme{cymat}{
+%%   \sort{\citeorder}
+%%   \sort{
+%%       \field{sortyear}
+%%       \field{year}
+%%       \literal{0}
+%%     }
+%%     \sort{
+%%       \field[padside=left,padwidth=2,padchar=0]{month}
+%%       \literal{0}
+%%     }
+%%     \sort[direction=descending]{
+%%       \field[padside=left,padwidth=2,padchar=0]{day}
+%%       \literal{99}
+%%     }
+%%   \sort{
+%%       \name{sortname}
+%%       \name{author}
+%%       \name{editor}
+%%       \name{translator}
+%%       \field{sorttitle}
+%%       \field{title}
+%%   }
+%% }
+
+%% \DeclareSortingScheme{ymn}{
+%% \sort{
+%% \field{author}
+%% \field{editor}
+%% \field{translator}
+%% }
+%% \sort{
+%% \field{title}
+%% }
+%% \sort{
+%% \field{year}
+%% }
 
 %\DeclareNameAlias{sortname}{last-first}
 %\DeclareNameAlias{default}{last-first}
