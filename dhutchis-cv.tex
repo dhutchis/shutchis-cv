@@ -132,6 +132,7 @@
   \number\numexpr\csuse{entrycount:\strfield{prefixnumber}}+1-#1\relax}
 
 \DeclareFieldFormat{url}{Online:~\url{#1}}
+%\DeclareFieldFormat{source}{Source:~\url{#1}}
 %\DeclareFieldFormat{addendum}{\emph{#1}}
 \DeclareFieldFormat{addendum}{\textbf{#1}}
 
@@ -139,6 +140,8 @@
 \addbibresource{C.bib}
 \addbibresource{J.bib}
 \addbibresource{T.bib}
+\addbibresource{P.bib}
+\addbibresource{O.bib}
 \nocite{*}
 
 % to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
@@ -159,7 +162,7 @@
 \phone[mobile]{862~226~2764}                   % optional, remove / comment the line if not wanted
 %\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
 %\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{dhutchis@mit.edu}                               % optional, remove / comment the line if not wanted
+\email{dhutchis@uw.edu}                               % optional, remove / comment the line if not wanted
 %\homepage{www.cs.stevens.edu/\textasciitilde dhutchis}
 \homepage{linkedin.com/in/dylanhutchison}
 %\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
@@ -371,8 +374,8 @@ a Matlab package delivering linear algebra and graph theory capabilities via Ass
 \printbibliography[prefixnumbers=C, title=Conference Papers, keyword=C,heading=subbibliography]{}
 \printbibliography[prefixnumbers=J, title=Journal Papers, keyword=J,heading=subbibliography]{}
 \printbibliography[prefixnumbers=T, title=Thesis, keyword=T,heading=subbibliography]{}
-
-
+\printbibliography[prefixnumbers=P, title=Posters, keyword=P,heading=subbibliography]{}
+\printbibliography[prefixnumbers=O, title={Other Talks and Demos}, keyword=O,heading=subbibliography]{}
 
 %{Conference Papers},{Submitted Papers},{Thesis},{Journal Papers}
 
