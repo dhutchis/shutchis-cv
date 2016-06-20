@@ -74,20 +74,23 @@
     \field[padside=left,padwidth=2,padchar=0]{day}
     \literal{99}
   }
-  \sort{
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
-    \field{sorttitle}
-    \field{title}
-  }
-  \sort{
-    \field{sorttitle}
-  }
+  % \sort{
+  %   \name{sortname}
+  %   \name{author}
+  %   \name{editor}
+  %   \name{translator}
+  %   \field{sorttitle}
+  %   \field{title}
+  % }
+  % \sort{
+  %   \field{sorttitle}
+  % }
+  % \sort[direction=descending]{
+  %   \field[padside=left,padwidth=4,padchar=0]{volume}
+  %   \literal{9999}
+  % }
   \sort[direction=descending]{
-    \field[padside=left,padwidth=4,padchar=0]{volume}
-    \literal{9999}
+    \citeorder
   }
 }
 % sort in citation order and then by year/month, and author and title
