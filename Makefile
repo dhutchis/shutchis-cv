@@ -49,16 +49,16 @@ pspdf: ps
 
 pdf: pdflatex bibtex pdflatex2
 
-gentex:
-	$(LYX) --export latex $(INPUT)-lyx$(LYXEXT)
+# gentex:
+# 	$(LYX) --export latex $(INPUT)-lyx$(LYXEXT)
 
-viewdvi:
-	kdvi $(INPUT)$(DVIEXT)
+# viewdvi:
+# 	kdvi $(INPUT)$(DVIEXT)
 
-view: kpdf
+# view: kpdf
 
-kpdf:
-	okular $(INPUT)$(PDFEXT)
+# kpdf:
+# 	okular $(INPUT)$(PDFEXT)
 
 clean:
 	rm -f $(INPUT)$(PSEXT)
@@ -72,3 +72,7 @@ L := a b c
 
 test:
 	$(foreach I,$(L),echo $(I);)
+
+view:
+	xdg-open $(INPUT).pdf
+
