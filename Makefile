@@ -1,8 +1,8 @@
 # input file name.  This defines the name of the file you want to latex
 # the make file will automatically look for INPUT.tex as the latex file
 # and will look for a INPUT.bib file for the bibliography
-INPUT=dhutchis-cv
-BIBFILE=dhutchis-cv     #S C T J
+INPUT=shutchis-cv
+BIBFILE=shutchis-cv     #S C T J
 
 #commands 
 TEX=latex #xetex
